@@ -1,0 +1,10 @@
+{
+  "ID": "AP41.240823.009",
+  "BRAND": "google",
+  "DEVICE": "tokay",
+  "FINGERPRINT": "google/tokay_beta/tokay:15/AP41.240823.009/12329489:user/release-keys",
+  "MANUFACTURER": "Google",
+  "MODEL": "Pixel 9",
+  "PRODUCT": "tokay_beta",
+  "SECURITY_PATCH": "2024-09-05"
+}

@@ -83,7 +83,6 @@ androidComponents.onVariants { variant ->
             group = "module"
             dependsOn("assemble$variantCapped")
             into(moduleDir)
-            from(rootProject.layout.projectDirectory.file("README.md"))
             from(layout.projectDirectory.file("template")) {
                 exclude("module.prop", "customize.sh", "post-fs-data.sh", "service.sh")
                 filter<FixCrLfFilter>("eol" to FixCrLfFilter.CrLf.newInstance("lf"))

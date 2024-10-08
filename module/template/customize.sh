@@ -81,8 +81,10 @@ elif [ "$ARCH" = "x86" ]; then
 fi
 
 CONFIG_DIR=/data/adb/build_var_spoof
-if [ ! -d "$CONFIG_DIR" ]; then
-  ui_print "- Creating configuration directory"
-  mkdir -p "$CONFIG_DIR"
-  [ ! -f "$CONFIG_DIR/spoof_build_vars" ] && touch "$CONFIG_DIR/spoof_build_vars"
+if [ -f "/data/adb/pif.json" ]; then
+  mv -f "/data/adb/pif.json" "/data/adb/pif.json.old"
+  ui_print "- Backup custom pif.json"
 fi
+ui_print "- Adding pif json"
+extract "$ZIPFILE" 'pif.json' "$TMPDIR"
+mv -f "$TMPDIR/pif.json" "$CONFIG_DIR/pif.json"
