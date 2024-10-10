@@ -268,20 +268,18 @@ void read_config(FILE *config, SpoofConfig &spoof_config) {
 static void companion_handler(int fd) {
     constexpr auto kSpoofConfigFile = "/data/adb/build_var_spoof/spoof_build_vars"sv;
     constexpr auto kDefaultSpoofConfig =
-            R"EOF(
+            R"EOF(MANUFACTURER=Google
+MODEL=Pixel 9
+FINGERPRINT=google/tokay_beta/tokay:15/AP41.240823.009/12329489:user/release-keys
+BRAND=google
+PRODUCT=tokay_beta
+DEVICE=tokay
+RELEASE=15
+ID=AP41.240823.009
+INCREMENTAL=12329489
 TYPE=user
 TAGS=release-keys
-ID=AP41.240823.009
-BRAND=google
-DEVICE=tokay
-FINGERPRINT=google/tokay_beta/tokay:15/AP41.240823.009/12329489:user/release-keys
-MANUFACTURER=Google
-MODEL=Pixel 9
-PRODUCT=tokay_beta
-INCREMENTAL=12329489
-RELEASE=15
-SECURITY_PATCH=2024-09-05
-)EOF"sv;
+SECURITY_PATCH=2024-09-05)EOF"sv;
     struct stat st{};
     int enabled = stat(kSpoofConfigFile.data(), &st) == 0;
     xwrite(fd, &enabled, sizeof(enabled));
